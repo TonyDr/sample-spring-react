@@ -8,19 +8,19 @@ export default class MainMenu extends Component {
 
         return (
             <Menu compact icon='labeled' vertical>
-                <Link to="/#">
+                <Link to="/">
                     <Menu.Item name='app'>
                         <Icon name='home'/>
                         Home
                     </Menu.Item>
                 </Link>
-                <Link to="/todo">
+                <Link to="todo">
                     <Menu.Item name='todolist'>
                         <Icon name='tasks'/>
                         ToDo List
                     </Menu.Item>
                 </Link>
-                <Link to="/users">
+                <Link to="users">
                     <Menu.Item name='users'>
                         <Icon name='user'/>
                         Users

@@ -3,7 +3,7 @@ import {AUTH_USER_SUCCESS, AUTH_USER_ERROR} from './../actions/authAction'
 const initalState = {
     username: '',
     userToken: '',
-    isAuthorized: false,
+    isAuthenticated: false,
     authError: ''
 };
 
