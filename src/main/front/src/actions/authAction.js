@@ -3,7 +3,7 @@
 export const AUTH_USER_SUCCESS = 'AUTH_USER_SUCCESS';
 export const AUTH_USER_ERROR = 'AUTH_USER_ERROR';
 
-function authUserSuccess(name, token) {
+export function authUserSuccess(name, token) {
     return {
         type: AUTH_USER_SUCCESS,
         payload: {
@@ -13,9 +13,9 @@ function authUserSuccess(name, token) {
     }
 }
 
-function authUserSuccess(error) {
+export function authUserError(error) {
     return {
-        type: AUTH_USER_SUCCESS,
+        type: AUTH_USER_ERROR,
         payload: {
             error
         }

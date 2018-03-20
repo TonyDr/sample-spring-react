@@ -13,7 +13,7 @@ const authReducer = (state = initalState, action) => {
             return Object.assign({}, state, {
                 username: action.payload.username,
                 userToken: action.payload.token,
-                isAuthorized: true,
+                isAuthenticated: true,
                 authError: ''
             });
 
@@ -21,7 +21,7 @@ const authReducer = (state = initalState, action) => {
             return Object.assign({}, state, {
                 username: null,
                 userToken: null,
-                isAuthorized: false,
+                isAuthenticated: false,
                 authError: action.payload.error
             });
         default:
