@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import { Menu, Icon}  from 'semantic-ui-react'
+import {Link} from 'react-router';
+import {Menu, Icon}  from 'semantic-ui-react'
 
 export default class MainMenu extends Component {
 
@@ -7,15 +8,24 @@ export default class MainMenu extends Component {
 
         return (
             <Menu compact icon='labeled' vertical>
-                <Menu.Item name='todolist' >
-                    <Icon name='gamepad' />
-                    ToDo List
-                </Menu.Item>
-
-                <Menu.Item name='users' >
-                    <Icon name='user' />
-                    Users
-                </Menu.Item>
+                <Link to="/#">
+                    <Menu.Item name='app'>
+                        <Icon name='home'/>
+                        Home
+                    </Menu.Item>
+                </Link>
+                <Link to="/todo">
+                    <Menu.Item name='todolist'>
+                        <Icon name='tasks'/>
+                        ToDo List
+                    </Menu.Item>
+                </Link>
+                <Link to="/users">
+                    <Menu.Item name='users'>
+                        <Icon name='user'/>
+                        Users
+                    </Menu.Item>
+                </Link>
             </Menu>
         )
     }
