@@ -8,10 +8,6 @@ import ru.tony.sample.repositories.UserRepository;
 
 import javax.annotation.PostConstruct;
 
-/**
- * sbt-dranitsyn-as
- * 21.03.2018
- */
 @SpringBootApplication
 public class Application {
 
@@ -24,7 +20,7 @@ public class Application {
 
     @PostConstruct
     public void initData() {
-        userRepository.save(new User("admin", "admin", "admin description"));
-        userRepository.save(new User("staff", "staff", "staff description"));
+        userRepository.save(new User("admin", "admin", "admin description", new String[]{"ROLE_ADMIN"}));
+        userRepository.save(new User("staff", "staff", "staff description", new String[]{"ROLE_USER"} ));
     }
 }

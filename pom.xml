@@ -30,15 +30,15 @@
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
         <!-- tag::security[] -->
-      <!--  <dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
-        <dependency>
+    <!--    <dependency>
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-springsecurity4</artifactId>
-        </dependency>-->
-        <!-- end::security[] -->
+        </dependency>
+    -->    <!-- end::security[] -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

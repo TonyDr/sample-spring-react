@@ -8,10 +8,6 @@ import ru.tony.sample.repositories.UserRepository;
 
 import java.util.List;
 
-/**
- * sbt-dranitsyn-as
- * 21.03.2018
- */
 @RestController
 @RequestMapping("api")
 public class UserController {

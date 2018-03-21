@@ -8,10 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-/**
- * sbt-dranitsyn-as
- * 21.03.2018
- */
 @Entity
 @Data
 @RequiredArgsConstructor
