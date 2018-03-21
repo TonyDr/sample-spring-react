@@ -26,6 +26,13 @@ export default class MainMenu extends Component {
                         Users
                     </Menu.Item>
                 </Link>
+
+                <Link to="logout">
+                    <Menu.Item name='logout'>
+                        <Icon name='sign out'/>
+                        Logout
+                    </Menu.Item>
+                </Link>
             </Menu>
         )
     }

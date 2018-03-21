@@ -2,6 +2,7 @@
 
 export const AUTH_USER_SUCCESS = 'AUTH_USER_SUCCESS';
 export const AUTH_USER_ERROR = 'AUTH_USER_ERROR';
+export const LOGOUT_USER = 'LOGOUT_USER';
 
 export function authUserSuccess(name, token) {
     return {
@@ -19,5 +20,11 @@ export function authUserError(error) {
         payload: {
             error
         }
+    }
+}
+
+export function logoutUser() {
+    return {
+        type: LOGOUT_USER
     }
 }

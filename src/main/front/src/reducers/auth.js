@@ -1,13 +1,13 @@
-import {AUTH_USER_SUCCESS, AUTH_USER_ERROR} from './../actions/authAction'
+import {AUTH_USER_SUCCESS, AUTH_USER_ERROR, LOGOUT_USER} from './../actions/authAction'
 
-const initalState = {
+const initialState = {
     username: '',
     userToken: '',
     isAuthenticated: false,
     authError: ''
 };
 
-const authReducer = (state = initalState, action) => {
+const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case AUTH_USER_SUCCESS :
             return Object.assign({}, state, {
@@ -23,6 +23,13 @@ const authReducer = (state = initalState, action) => {
                 userToken: null,
                 isAuthenticated: false,
                 authError: action.payload.error
+            });
+        case LOGOUT_USER:
+            return Object.assign({}, state, {
+                username: null,
+                userToken: null,
+                isAuthenticated: false,
+                authError: null
             });
         default:
             return state;

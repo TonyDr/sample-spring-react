@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { authUserSuccess}  from './../actions/authAction'
 import { push } from 'react-router-redux'
 import {connect} from "react-redux";
@@ -6,12 +6,6 @@ import {connect} from "react-redux";
 
 class LoginForm extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        this.onLogin = this.onLogin.bind(this);
-
-    }
 
     onLogin() {
         console.log('log pressed')
@@ -20,12 +14,13 @@ class LoginForm extends React.Component {
     }
 
     render() {
-        return (<div>Login here
-            <button onClick={this.onLogin}>Login</button></div>)
+        return (<div>Login here!!!
+            <button onClick={this.onLogin.bind(this)}>Login</button></div>)
     }
 }
 
 function mapStateToProps(state) {
+    console.info("login form" + state);
     return {
         isAuthenticated: state.auth.isAuthenticated,
     };
