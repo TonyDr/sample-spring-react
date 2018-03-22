@@ -30,7 +30,7 @@ export default function(ComposedComponent) {
     function mapStateToProps(state) {
         console.info("requireAuth" + state);
         return {
-            isAuthenticated: state.auth.isAuthenticated,
+            isAuthenticated: state.authentication.isAuthenticated,
         };
     }
 

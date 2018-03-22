@@ -18,7 +18,7 @@ class LoginForm extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        isAuthenticated: state.auth.isAuthenticated,
+        isAuthenticated: state.authentication.isAuthenticated,
     };
 }
 

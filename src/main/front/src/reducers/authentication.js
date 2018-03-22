@@ -1,14 +1,19 @@
-import {AUTH_USER_SUCCESS, AUTH_USER_ERROR, LOGOUT_USER} from './../actions/authAction'
+import {AUTH_USER_START, AUTH_USER_SUCCESS, AUTH_USER_ERROR, LOGOUT_USER} from './../actions/authAction'
 
 const initialState = {
     username: '',
     userToken: '',
     isAuthenticated: false,
-    authError: ''
+    authError: '',
+    isLoading: false
 };
 
-const authReducer = (state = initialState, action) => {
+const authenticationReducer = (state = initialState, action) => {
     switch (action.type) {
+        case AUTH_USER_START :
+            return Object.assign({}, state, {
+                isLoading: true
+            });
         case AUTH_USER_SUCCESS :
             return Object.assign({}, state, {
                 username: action.payload.username,
@@ -19,8 +24,6 @@ const authReducer = (state = initialState, action) => {
 
         case AUTH_USER_ERROR:
             return Object.assign({}, state, {
-                username: null,
-                userToken: null,
                 isAuthenticated: false,
                 authError: action.payload.error
             });
@@ -37,4 +40,4 @@ const authReducer = (state = initialState, action) => {
 };
 
 
-export default authReducer
+export default authenticationReducer
