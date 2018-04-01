@@ -22,6 +22,6 @@ public class StubDataInitializer {
     @PostConstruct
     public void initData() {
         userRepository.save(new User("admin", passwordEncoder.encode("admin"), "admin description", new String[]{"ROLE_ADMIN"}));
-        userRepository.save(new User("staff", passwordEncoder.encode("staff"), "staff description", new String[]{"ROLE_USER"} ));
+        userRepository.save(new User("staff", passwordEncoder.encode("staff"), "staff description", new String[]{"ROLE_STAFF"} ));
     }
 }

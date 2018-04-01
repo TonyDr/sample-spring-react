@@ -15,7 +15,12 @@ public class Item implements Serializable {
 
     @Id @GeneratedValue
     private Long id;
+
+    private final String name;
     private final String description;
 
-
+    Item() {
+        this.name = null;
+        this.description = null;
+    }
 }

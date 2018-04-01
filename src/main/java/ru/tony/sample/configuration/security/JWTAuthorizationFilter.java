@@ -1,10 +1,12 @@
 package ru.tony.sample.configuration.security;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
@@ -13,7 +15,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static ru.tony.sample.configuration.security.SecurityConstants.*;
 
@@ -46,19 +50,25 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
             if (token != null) {
                 // parse the token.
 
-                String user = Jwts.parser()
+                Claims body = Jwts.parser()
                         .setSigningKey(SECRET.getBytes())
                         .parseClaimsJws(token.replace(TOKEN_PREFIX, ""))
-                        .getBody()
-                        .getSubject();
-
+                        .getBody();
+                String user = body.getSubject();
+                String roles = (String) body.get("roles");
                 if (user != null) {
-                    return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<GrantedAuthority>());
+                    return new UsernamePasswordAuthenticationToken(user, null, getAuthorities(roles));
                 }
             }
             return null;
         } catch (ExpiredJwtException ex) {
             return null;
         }
+    }
+
+    private List<GrantedAuthority> getAuthorities(String roles) {
+        return Arrays.stream(roles.split(","))
+                .map(SimpleGrantedAuthority::new)
+                .collect(Collectors.toList());
     }
 }

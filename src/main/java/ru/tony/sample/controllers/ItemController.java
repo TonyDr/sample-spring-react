@@ -4,25 +4,24 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.tony.sample.entity.User;
-import ru.tony.sample.repositories.UserRepository;
+import ru.tony.sample.entity.Item;
+import ru.tony.sample.repositories.ItemRepository;
 
 import java.util.List;
 
-@PreAuthorize(value = "hasRole('ROLE_ADMIN')")
+@PreAuthorize(value = "hasAnyRole('ROLE_STAFF', 'ROLE_ADMIN')")
 @RestController
 @RequestMapping("api")
-public class UserController {
+public class ItemController {
 
-    private UserRepository repository;
+    private ItemRepository repository;
 
-    public UserController(UserRepository repository) {
+    public ItemController(ItemRepository repository) {
         this.repository = repository;
     }
 
-
-    @GetMapping("/users")
-    public List<User> getUserList() {
-        return (List<User>) repository.findAll();
+    @GetMapping("/items")
+    public List<Item> getUserList() {
+        return (List<Item>) repository.findAll();
     }
 }
