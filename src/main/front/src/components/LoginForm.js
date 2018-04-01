@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
 import {connect} from "react-redux";
-import {Button, Form, Grid, Header, Image, Message, Segment} from 'semantic-ui-react'
+import {Button, Form, Grid, Header,  Message, Segment} from 'semantic-ui-react'
 import {authUser}  from './../actions/authAction'
+import {push} from "react-router-redux";
+import {restoreAuth} from "../actions/authAction";
 
 
 class LoginForm extends React.Component {
@@ -18,6 +20,10 @@ class LoginForm extends React.Component {
 
         this.onChange = this.onChange.bind(this);
         this.onLogin = this.onLogin.bind(this);
+    }
+
+    componentWillMount() {
+        this.props.dispatch(restoreAuth());
     }
 
     onChange(e) {
@@ -94,7 +100,6 @@ LoginForm.propTypes = {
 
 
 function mapStateToProps(state) {
-    console.info("login form" + state);
     return {
         isLoading: state.authentication.isLoading,
         errorMessage: state.authentication.authError

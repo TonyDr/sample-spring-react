@@ -7,17 +7,17 @@ export default class MainMenu extends Component {
     render() {
 
         return (
-            <Menu compact icon='labeled' vertical>
+            <Menu compact icon='labeled' vertical color='green'>
                 <Link to="/">
                     <Menu.Item name='app'>
                         <Icon name='home'/>
                         Home
                     </Menu.Item>
                 </Link>
-                <Link to="todo">
-                    <Menu.Item name='todolist'>
+                <Link to="items">
+                    <Menu.Item name='itemlist'>
                         <Icon name='tasks'/>
-                        ToDo List
+                        Item list
                     </Menu.Item>
                 </Link>
                 <Link to="users">

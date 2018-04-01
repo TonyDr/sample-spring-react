@@ -13,16 +13,16 @@ class UsersLayout extends Component {
         super(props)
     }
 
-    componentWillMount() {
+    componentDidMount() {
         const {dispatch} = this.props;
         dispatch(fetchUsers())
     }
 
     render() {
-        const {userList} = this.props
+        const {userList} = this.props;
         return (
             <MainLayout layoutContent={
-                <Segment attached="top">
+                <Segment attached="top" color='green'>
                     <div>Hello users</div>
                     <UserList userList={userList}/>
                 </Segment>}/>
@@ -35,10 +35,9 @@ UsersLayout.propTypes = {
     userList: PropTypes.array.isRequired,
     isFetching: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired
-}
+};
 
 function mapStateToProps(state) {
-
     return {
         userList: state.users.userList,
         isFetching: state.users.fetching

@@ -1,20 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux'
+import {restoreAuth}  from './../actions/authAction'
 
 
 export default function(ComposedComponent) {
     class Authenticate extends React.Component {
 
         componentWillMount() {
-            console.log("mount")
+            console.log("mount");
             if (!this.props.isAuthenticated) {
-                console.log("push login")
+                restoreAuth();
+                console.log("push login");
                 this.props.dispatch(push('/login'))
             }
         }
 
         componentWillUpdate(nextProps) {
+            console.log("update");
             if (!nextProps.isAuthenticated) {
                 this.props.dispatch(push('/'))
             }

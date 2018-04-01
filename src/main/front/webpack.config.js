@@ -1,4 +1,4 @@
-var path = require("path");
+let path = require("path");
 
 module.exports = {
     entry: './src/index.js',
@@ -14,7 +14,7 @@ module.exports = {
                 loader: 'babel-loader',
                 query: {
                     cacheDirectory: true,
-                    presets: ['es2015', 'react']
+                    presets: ['es2015', 'react', 'stage-0']
                 }
             },
             {

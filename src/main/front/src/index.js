@@ -11,7 +11,8 @@ import thunk from "redux-thunk"
 
 import rootReducer from './reducers'
 import App from './components/App'
-import Todo from './components/ToDo'
+import ItemLayout from './components/item/ItemLayout'
+import ItemEditLayout from './components/item/ItemEditLayout'
 import UsersLayout from './components/user/UsersLayout'
 import LoginForm from './components/LoginForm'
 import LogoutForm from './components/LogoutForm'
@@ -26,7 +27,9 @@ render(
     <Provider store={store}>
         <Router history={history}>
             <Route path="/" component={requireAuth(App)}/>
-            <Router path="/todo" component={requireAuth(Todo)}/>
+            <Router path="/items" component={requireAuth(ItemLayout)}/>
+            <Router path="/items/edit(:id)" component={requireAuth(ItemEditLayout)}/>
+
             <Router path="/users" component={requireAuth(UsersLayout)}/>
             <Router path="login" component={LoginForm}/>
             <Router path="logout" component={LogoutForm}/>

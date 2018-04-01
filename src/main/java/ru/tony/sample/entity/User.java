@@ -23,6 +23,7 @@ public class User implements Serializable {
 
     @JsonIgnore
     private final String password;
+
     private final String description;
     private final String[] roles;
 

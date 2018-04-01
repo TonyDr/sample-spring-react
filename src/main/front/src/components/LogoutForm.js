@@ -3,11 +3,11 @@ import {logoutUser} from './../actions/authAction'
 import { push } from 'react-router-redux'
 import {connect} from "react-redux";
 
-class LoginForm extends React.Component {
+class LogoutForm extends React.Component {
 
     componentWillMount() {
-        console.log("logout")
-        this.props.dispatch(logoutUser())
+        console.log("logout");
+        this.props.dispatch(logoutUser());
         this.props.dispatch(push("/login"))
     }
 
@@ -22,5 +22,5 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(LoginForm);
+export default connect(mapStateToProps)(LogoutForm);
 

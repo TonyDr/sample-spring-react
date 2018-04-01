@@ -1,0 +1,50 @@
+.page-container {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.page-menu {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+
+    top: 0;
+    left: 0;
+
+    width: 90px;
+    height: 100%;
+
+}
+
+.page-header {
+    margin-left: 95px;
+    margin-right: 5px;
+
+    text-align: center;
+
+    height: 95px;
+    width: 100%;
+
+}
+
+.page-content {
+    margin-left: 95px;
+    margin-right: 5px;
+    height: 100%;
+    width: 100%;
+
+}
+
+.all-wide {
+    width: 100%;
+}
+
+.field-label {
+    width: 150px !important;
+}

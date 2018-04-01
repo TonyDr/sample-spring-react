@@ -1,4 +1,4 @@
-import {AUTH_USER_START, AUTH_USER_SUCCESS, AUTH_USER_ERROR, LOGOUT_USER} from './../actions/authAction'
+import {AUTH_USER_START, AUTH_USER_SUCCESS, AUTH_USER_ERROR, LOGOUT_USER, AUTH_RESTORE} from './../actions/authAction'
 
 const initialState = {
     username: '',
@@ -22,6 +22,11 @@ const authenticationReducer = (state = initialState, action) => {
                 authError: ''
             });
 
+        case AUTH_RESTORE :
+            return Object.assign({}, state, {
+                isAuthenticated: true,
+                userToken: action.payload.token
+            });
         case AUTH_USER_ERROR:
             return Object.assign({}, state, {
                 isAuthenticated: false,
