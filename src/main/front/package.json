@@ -7,6 +7,7 @@
     "build": "webpack",
     "watch": "webpack --watch -d",
     "watch-spring": "webpack --watch -d --config webpack.config.spring.js",
+    "build-spring": "webpack -p --config webpack.config.spring.js",
     "dev": "webpack-dev-server --watch -d ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
