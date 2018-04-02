@@ -22,8 +22,8 @@ class LoginForm extends React.Component {
         this.onLogin = this.onLogin.bind(this);
     }
 
-    componentWillMount() {
-        this.props.dispatch(restoreAuth());
+    componentDidMount() {
+        //dispatch(restoreAuth());
     }
 
     onChange(e) {

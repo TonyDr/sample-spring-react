@@ -49,7 +49,7 @@ export function authUserError(error) {
 
 export function restoreAuth() {
     let token = localStorage.getItem("auth-token");
-    if (token) {
+    if (token && token !== null) {
         axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
         return function(dispatch) {
             dispatch(pushRestore(token));
@@ -68,6 +68,8 @@ function pushRestore(token) {
 }
 
 export function logoutUser() {
+    axios.defaults.headers.common['Authorization'] = null;
+    localStorage.removeItem("auth-token");
     return {
         type: LOGOUT_USER
     }

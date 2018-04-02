@@ -25,7 +25,7 @@ export function saveItem(data) {
     return function(dispatch) {
         dispatch({type: SAVE_ITEM_START});
 
-        axios.get("/api/items")
+        axios.post("/api/items", data)
             .then((response) => {
                 dispatch({type: SAVE_ITEM_FULFILLED, payload: response.data})
             })
