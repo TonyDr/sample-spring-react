@@ -48,3 +48,11 @@
 .field-label {
     width: 150px !important;
 }
+
+.inline-block {
+    display: inline-block;
+    margin:10px;
+}
+.ui.page.modals.transition.visible {
+    display: flex !important;
+}

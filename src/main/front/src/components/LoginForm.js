@@ -1,10 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types'
 import {connect} from "react-redux";
-import {Button, Form, Grid, Header,  Message, Segment} from 'semantic-ui-react'
-import {authUser}  from './../actions/authAction'
-import {push} from "react-router-redux";
-import {restoreAuth} from "../actions/authAction";
+import {Button, Form, Grid, Header, Segment} from 'semantic-ui-react'
+import {authUser} from './../actions/authAction'
 
 
 class LoginForm extends React.Component {
@@ -59,7 +57,7 @@ class LoginForm extends React.Component {
                     verticalAlign='middle'
                 >
                     <Grid.Column style={{maxWidth: 450}}>
-                        <Header as='h2' color='teal' textAlign='center'>
+                        <Header as='h2' color='green' textAlign='center'>
                             {' '}Log-in to your account
                         </Header>
                         <Form size='large' onSubmit={this.onLogin}>
@@ -84,7 +82,7 @@ class LoginForm extends React.Component {
                                     onChange={this.onChange}
                                 />
 
-                                <Button color='teal' disabled={isLoading} fluid size='large'>Login</Button>
+                                <Button color='green' disabled={isLoading} fluid size='large'>Login</Button>
                             </Segment>
                         </Form>
                     </Grid.Column>

@@ -6,20 +6,17 @@ import {Button, Header, Segment} from 'semantic-ui-react'
 import MainLayout from '../MainLayout'
 import ItemList from "./ItemList";
 import {Link} from "react-router";
+import {fetchItems} from "../../actions/itemsAction";
 
 class ItemLayout extends Component {
 
     constructor(props) {
         super(props);
-        this.clickCreate.bind(this);
     }
 
     componentDidMount() {
-
-    }
-
-    clickCreate() {
-
+        const {dispatch} = this.props;
+        dispatch(fetchItems())
     }
 
     render() {

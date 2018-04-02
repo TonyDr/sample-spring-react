@@ -28,7 +28,7 @@ render(
         <Router history={history}>
             <Route path="/" component={requireAuth(App)}/>
             <Router path="/items" component={requireAuth(ItemLayout)}/>
-            <Router path="/items/edit(:id)" component={requireAuth(ItemEditLayout)}/>
+            <Router path="/items/edit(/:id)" component={requireAuth(ItemEditLayout)}/>
 
             <Router path="/users" component={requireAuth(UsersLayout)}/>
             <Router path="login" component={LoginForm}/>
