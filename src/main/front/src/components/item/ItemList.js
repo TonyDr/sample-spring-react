@@ -7,7 +7,7 @@ import DeleteDialog from "../DeleteDialog";
 export default class ItemList extends Component {
     render() {
         return (
-            <Table celled basic>
+            <Table celled basic >
                 <Table.Header>
                     <Table.Row>
                         <Table.HeaderCell>Item name</Table.HeaderCell>
@@ -38,6 +38,5 @@ export default class ItemList extends Component {
 }
 
 ItemList.propTypes = {
-    itemList: PropTypes.array.isRequired
-
+    itemList: PropTypes.array.isRequired,
 };

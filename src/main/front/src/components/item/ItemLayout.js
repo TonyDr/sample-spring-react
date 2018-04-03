@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {Button, Header, Segment} from 'semantic-ui-react'
+import {Button, Dimmer, Header, Loader, Segment} from 'semantic-ui-react'
 
 import MainLayout from '../MainLayout'
 import ItemList from "./ItemList";
@@ -19,6 +19,16 @@ class ItemLayout extends Component {
         dispatch(fetchItems())
     }
 
+    componentWillMount() {
+
+    }
+
+    componentWillUpdate(nextProps) {
+        if (this.props.deleting && nextProps.deleting !== this.props.deleting) {
+            this.props.dispatch(fetchItems());
+        }
+    }
+
     render() {
         const {itemList} = this.props;
         return (
@@ -27,6 +37,9 @@ class ItemLayout extends Component {
                     <Header as='h5'>Item list</Header>
                     <Link to="items/edit"><Button color='green'>Create</Button></Link>
                     <ItemList itemList={itemList}/>
+                    <Dimmer active={this.props.isFetching} inverted>
+                        <Loader inverted content={'Loading'}/>
+                    </Dimmer>
                 </Segment>}/>
         )
     }
@@ -36,13 +49,17 @@ class ItemLayout extends Component {
 ItemLayout.propTypes = {
     itemList: PropTypes.array.isRequired,
     isFetching: PropTypes.bool.isRequired,
+    isFetched: PropTypes.bool.isRequired,
+    deleting: PropTypes.bool.isRequired,
     dispatch: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
     return {
         itemList: state.items.itemList,
-        isFetching: state.items.fetching
+        isFetching: state.items.fetching,
+        isFetched: state.items.fetched,
+        deleting: state.items.deleting
     }
 }
 

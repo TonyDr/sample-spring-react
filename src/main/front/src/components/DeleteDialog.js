@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Button, Confirm} from 'semantic-ui-react'
-import {deleteItem, fetchItems} from "../actions/itemsAction";
+import {deleteItem} from "../actions/itemsAction";
 
 class ConfirmDialog extends Component {
 
@@ -10,14 +10,11 @@ class ConfirmDialog extends Component {
 
     show = () => this.setState({open: true});
     handleConfirm = () => {
-
         this.props.dispatch(deleteItem(this.props.itemId));
-        this.props.dispatch(fetchItems());
         this.setState({open: false});
     };
     handleCancel = () => {
         this.setState({open: false});
-
     };
 
     render() {
